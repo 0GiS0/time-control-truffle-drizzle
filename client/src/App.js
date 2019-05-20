@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import Register from "./Register";
@@ -24,7 +23,6 @@ class App extends React.Component {
       if (drizzleState.drizzleStatus.initialized) {
         this.setState({ loading: false, drizzleState });
       }
-
     });
   }
 

@@ -5,19 +5,12 @@ export default class Registries extends React.Component {
     state = { ref: null };
 
     componentDidMount() {
-        const { drizzle, drizzleState } = this.props;
-
-        // console.log(drizzle);
-        // console.log(drizzleState);
+        const { drizzle } = this.props;
 
         const contract = drizzle.contracts.TimeControl;
 
-        //console.log(contract);
-
-        //let drizzle know we want to watch the GetMyRegistries method
         const ref = contract.methods["GetMyRegistries"].cacheCall();
 
-        //save the registries to local component state for later reference
         this.setState({ ref });
     }
 
@@ -30,9 +23,6 @@ export default class Registries extends React.Component {
         //using the saved registries, get the variable we're interested in
         const registries = TimeControl.GetMyRegistries[this.state.ref];
 
-        // console.log('registries');
-        // console.log(registries);
-
         return (
             <div className="container">
                 <h3>My Registries</h3>
@@ -44,7 +34,7 @@ export default class Registries extends React.Component {
                             <th>Date Time</th>
                         </tr>
                     </thead>
-                    <tbody>                       
+                    <tbody>
                         {registries && registries.value.map(function (registry, index) {
                             let d = new Date(0); //The 0 there is the key, which sets the date to epoch
                             d.setUTCSeconds(registry);
