@@ -13,13 +13,11 @@ class App extends React.Component {
   componentDidMount() {
     const { drizzle } = this.props;
 
-    //subscribe the changes in the store
     this.unsubscribe = drizzle.store.subscribe(() => {
 
-      //every time the store updates, grab the state from drizzle
+      //every time the store updates, save the state from drizzle
       const drizzleState = drizzle.store.getState();
 
-      //check to see if it's ready, if so, update local component state
       if (drizzleState.drizzleStatus.initialized) {
         this.setState({ loading: false, drizzleState });
       }

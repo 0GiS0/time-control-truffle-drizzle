@@ -5,8 +5,6 @@ export default class Register extends React.Component {
 
     constructor(props) {
         super(props);
-        console.log(this.props);
-
         this.submitRegistration = this.submitRegistration.bind(this);
     }
 
@@ -15,11 +13,8 @@ export default class Register extends React.Component {
         const { drizzle, drizzleState } = this.props;
         const contract = drizzle.contracts.TimeControl;
 
-        console.log(drizzle, drizzleState);
-
         const stackId = contract.methods["Register"].cacheSend({ from: drizzleState.accounts[0] });
 
-        //save the stackId for later reference
         this.setState({ stackId });
     }
 
@@ -48,5 +43,4 @@ export default class Register extends React.Component {
             </div>
         );
     }
-
 }

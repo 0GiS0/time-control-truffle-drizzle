@@ -18,7 +18,6 @@ export default class Registries extends React.Component {
 
         //get the contract state from drizzleState
         const { TimeControl } = this.props.drizzleState.contracts;
-        console.log(TimeControl);
 
         //using the saved registries, get the variable we're interested in
         const registries = TimeControl.GetMyRegistries[this.state.ref];
@@ -30,7 +29,7 @@ export default class Registries extends React.Component {
                 <table className="table">
                     <thead>
                         <tr>
-                            <th>EPO</th>
+                            <th>EPOCH</th>
                             <th>Date Time</th>
                         </tr>
                     </thead>
